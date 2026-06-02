@@ -1,7 +1,7 @@
 function Navbar() {
   return (
     <div>
-      <div className="bg-white w-full h-24 flex-1 border-1 border-line">
+      <div className="bg-white w-full h-24 flex-1  border-t border-r border-b border-line">
         <div className="flex items-center h-full mx-10 justify-between">
           {/* Title */}
           <div className="font-bold text-2xl text-[#343C6A]">Transactions</div>
