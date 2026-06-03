@@ -1,12 +1,7 @@
 // src/components/SideBar.jsx
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoClose } from "react-icons/io5";
 
-function SideBar() {
-  const [isOpen, setIsOpen] = useState(false);
-
+function SideBar({ setIsOpen, isOpen }) {
   const menuItems = [
     {
       id: "dashboard",
@@ -66,24 +61,17 @@ function SideBar() {
 
   return (
     <>
-      {/* Hamburger*/}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 md:hidden bg-textblue text-white p-2 rounded-lg shadow-lg"
-      >
-        {isOpen ? <IoClose size={24} /> : <GiHamburgerMenu size={24} />}
-      </button>
-
       {/*mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
-          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-opacity-50 z-40 md:hidden"
+          onClick={setIsOpen}
         />
       )}
 
       {/* Sidebar */}
       <div
+        onClick={(e) => e.stopPropagation()}
         className={`
           fixed md:relative z-50 bg-white w-64 h-screen border-r border-line flex-shrink-0
           transition-transform duration-300 ease-in-out
@@ -111,7 +99,6 @@ function SideBar() {
                 <NavLink
                   key={item.id}
                   to={item.path}
-                  onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     `relative flex items-center gap-4 px-4 py-2 rounded-lg transition-all duration-300 ${
                       isActive

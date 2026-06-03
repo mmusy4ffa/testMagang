@@ -9,6 +9,10 @@ import { CiCircleChevUp } from "react-icons/ci";
 import { CiCircleChevDown } from "react-icons/ci";
 
 export default function Transaction() {
+  const [isOpen, setIsOpen] = useState(false);
+  function handleBurger() {
+    setIsOpen((open) => !open);
+  }
   const [active, setActive] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 4;
@@ -144,10 +148,10 @@ export default function Transaction() {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      <SideBar />
+      <SideBar isOpen={isOpen} setIsOpen={handleBurger} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <div className="flex-shrink-0">
-          <Navbar />
+          <Navbar isOpen={isOpen} setIsOpen={handleBurger} />
         </div>
         <Background>
           <div className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide">
@@ -156,8 +160,8 @@ export default function Transaction() {
                 <div className="font-bold text-xl sm:text-2xl text-[#343C6A]">
                   My Cards
                 </div>
-                <div className="text-sm sm:text-base text-blue-600 cursor-pointer hover:text-blue-700 border border-blue-600 px-3 sm:px-4 py-1 sm:py-2 rounded-lg transition">
-                  Add Cards +
+                <div className="text-sm sm:text-base font-semibold text-[#343C6A] cursor-pointer hover:text-blue-700 px-3 sm:px-4 py-1 sm:py-2 rounded-lg transition">
+                  + Add Cards
                 </div>
               </div>
 
