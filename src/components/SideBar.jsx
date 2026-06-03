@@ -1,156 +1,158 @@
-import { Link } from "react-router-dom";
+// src/components/SideBar.jsx
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoClose } from "react-icons/io5";
 
 function SideBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const menuItems = [
+    {
+      id: "dashboard",
+      name: "Dashboard",
+      icon: "/src/assets/icon/dash.svg",
+      path: "/dashboard",
+    },
+    {
+      id: "transaction",
+      name: "Transaction",
+      icon: "/src/assets/icon/transaction.svg",
+      path: "/transaction",
+    },
+    {
+      id: "accounts",
+      name: "Accounts",
+      icon: "/src/assets/icon/user.svg",
+      path: "/accounts",
+    },
+    {
+      id: "investments",
+      name: "Investments",
+      icon: "/src/assets/icon/investment.svg",
+      path: "/investments",
+    },
+    {
+      id: "creditcards",
+      name: "Credit Cards",
+      icon: "/src/assets/icon/credit.svg",
+      path: "/creditcards",
+    },
+    {
+      id: "loans",
+      name: "Loans",
+      icon: "/src/assets/icon/loan.svg",
+      path: "/loans",
+    },
+    {
+      id: "services",
+      name: "Services",
+      icon: "/src/assets/icon/service.svg",
+      path: "/services",
+    },
+    {
+      id: "privileges",
+      name: "My Privileges",
+      icon: "/src/assets/icon/priv.svg",
+      path: "/privileges",
+    },
+    {
+      id: "setting",
+      name: "Setting",
+      icon: "/src/assets/icon/set1.svg",
+      path: "/setting",
+    },
+  ];
+
   return (
-    <div>
-      <div className="bg-white w-58 h-screen border-1 border-line">
-        {/* Logo BankDash. */}
+    <>
+      {/* Hamburger*/}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed top-4 left-4 z-50 md:hidden bg-textblue text-white p-2 rounded-lg shadow-lg"
+      >
+        {isOpen ? <IoClose size={24} /> : <GiHamburgerMenu size={24} />}
+      </button>
+
+      {/*mobile */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <div
+        className={`
+          fixed md:relative z-50 bg-white w-64 h-screen border-r border-line flex-shrink-0
+          transition-transform duration-300 ease-in-out
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}
+          md:translate-x-0
+        `}
+      >
         <div className="m-6">
+          {/* Logo */}
           <div className="flex justify-center">
             <div className="flex items-center gap-2 cursor-pointer">
-              <img src="/src/assets/icon/bdash.svg" alt="" />
+              <img
+                src="/src/assets/icon/bdash.svg"
+                alt=""
+                className="w-6 h-6"
+              />
               <div className="font-bold text-2xl text-textprim">BankDash.</div>
             </div>
           </div>
 
-          {/* isi sidebar */}
-          <div className=" flex justify-center">
-            <div className="mt-10  space-y-8 md:space-y-6">
-              {/* Dashboard */}
-              <Link
-                to=""
-                className="cursor-pointer flex justify-center items-center gap-4 md:gap-2"
-              >
-                <div className=" flex justify-end">
-                  <img
-                    src="/src/assets/icon/dash.svg"
-                    alt=""
-                    className="md:h-4 md:w-4"
-                  />
-                </div>
-                <div className="font-medium text-lg text-tthird md:text-base w-32">
-                  Dashboard
-                </div>
-              </Link>
-              {/* Transaction */}
-              <Link
-                to=""
-                className="cursor-pointer flex justify-center items-center gap-4 md:gap-2"
-              >
-                <div className="flex justify-end">
-                  <img
-                    src="/src/assets/icon/transaction.svg"
-                    alt=""
-                    className="md:h-4 md:w-4"
-                  />
-                </div>
-                <div className="font-medium text-lg text-textblue font-primary md:text-base text-left w-32">
-                  Transaction
-                </div>
-              </Link>
-              {/* Accounts */}
-              <Link
-                to=""
-                className="cursor-pointer flex items-center gap-4 md:gap-2"
-              >
-                <img
-                  src="/src/assets/icon/user.svg"
-                  alt=""
-                  className="md:h-4 md:w-4"
-                />
-                <div className="font-medium text-lg text-tthird md:text-base">
-                  Accounts
-                </div>
-              </Link>
-              {/* Investments */}
-              <Link
-                to=""
-                className="cursor-pointer flex items-center gap-4 md:gap-2"
-              >
-                <img
-                  src="/src/assets/icon/investment.svg"
-                  alt=""
-                  className="md:h-4 md:w-4"
-                />
-                <div className="font-medium text-lg text-tthird md:text-base ">
-                  Investments
-                </div>
-              </Link>
-              {/* Credit Cards */}
-              <Link
-                to=""
-                className="cursor-pointer flex items-center gap-4 md:gap-2"
-              >
-                <img
-                  src="/src/assets/icon/credit.svg"
-                  alt=""
-                  className="md:h-4 md:w-4"
-                />
-                <div className="font-medium text-lg text-tthird md:text-base">
-                  Credit Cards
-                </div>
-              </Link>
-              {/* Loans */}
-              <Link
-                to=""
-                className="cursor-pointer flex items-center gap-4 md:gap-2"
-              >
-                <img
-                  src="/src/assets/icon/loan.svg"
-                  alt=""
-                  className="md:h-4 md:w-4"
-                />
-                <div className="font-medium text-lg text-tthird md:text-base">
-                  Loans
-                </div>
-              </Link>
-              {/* Services */}
-              <Link
-                to=""
-                className="cursor-pointer flex items-center gap-4 md:gap-2"
-              >
-                <img
-                  src="/src/assets/icon/service.svg"
-                  alt=""
-                  className="md:h-4 md:w-4"
-                />
-                <div className="font-medium text-lg text-tthird md:text-base">
-                  Services
-                </div>
-              </Link>
-              {/* My Privileges */}
-              <Link
-                to=""
-                className="cursor-pointer flex items-center gap-4 md:gap-2"
-              >
-                <img
-                  src="/src/assets/icon/priv.svg"
-                  alt=""
-                  className="md:h-4 md:w-4"
-                />
-                <div className="font-medium text-lg text-tthird md:text-base">
-                  My Privileges
-                </div>
-              </Link>
-              {/* Setting */}
-              <Link
-                to=""
-                className="cursor-pointer flex items-center gap-4 md:gap-2"
-              >
-                <img
-                  src="/src/assets/icon/set1.svg"
-                  alt=""
-                  className="md:h-4 md:w-4"
-                />
-                <div className="font-medium text-lg text-tthird md:text-base">
-                  Setting
-                </div>
-              </Link>
+          {/* Menu */}
+          <div className="flex justify-center mt-10">
+            <div className="space-y-6 w-full">
+              {menuItems.map((item) => (
+                <NavLink
+                  key={item.id}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `relative flex items-center gap-4 px-4 py-2 rounded-lg transition-all duration-300 ${
+                      isActive
+                        ? "text-textblue"
+                        : "text-tthird hover:bg-gray-50 hover:text-textblue"
+                    }`
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {/* Bar */}
+                      {isActive && (
+                        <div className="absolute -left-6 w-1 h-6 bg-textblue rounded-full"></div>
+                      )}
+
+                      <div className="w-6 flex justify-end">
+                        <img
+                          src={item.icon}
+                          alt=""
+                          className={`w-5 h-5 ${isActive ? "opacity-100" : "opacity-70"}`}
+                        />
+                      </div>
+                      <div
+                        className={`font-medium text-base ${
+                          isActive
+                            ? "text-textblue font-semibold"
+                            : "text-tthird"
+                        }`}
+                      >
+                        {item.name}
+                      </div>
+                    </>
+                  )}
+                </NavLink>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
+
 export default SideBar;

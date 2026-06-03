@@ -1,7 +1,7 @@
-function Background() {
+function Background({ children }) {
   return (
-    <div>
-      <div className="bg-black"></div>
+    <div className="bg-[#F5F7FA] flex-1 overflow-x-hidden scrollbar-hide ">
+      {children}
     </div>
   );
 }
