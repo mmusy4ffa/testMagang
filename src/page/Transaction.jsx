@@ -355,31 +355,31 @@ export default function Transaction() {
 
               {/* Mobile */}
               <div className="overflow-x-auto scrollbar-hide">
-                <div className="min-w-[800px] lg:min-w-full">
+                <div className="w-full">
                   <div className="bg-white rounded-xl h-auto shadow-sm">
-                    <div className="p-3 sm:p-4">
+                    <div className="p-3 sm:p-4 ">
                       {/* Header */}
-                      <div className="border-b border-[#718EBF] pb-3 sm:pb-4">
-                        <div className="grid grid-cols-7 gap-2 sm:gap-4">
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm">
+                      <div className="border-b border-[#718EBF] pb-3 sm:pb-4 max-md:hidden">
+                        <div className="grid grid-cols-7 gap-2 sm:gap-4 ">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
                             Descriptions
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
                             Transaction ID
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
                             Type
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
                             Card
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
                             Date
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
                             Amount
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
                             Receipt
                           </div>
                         </div>
@@ -395,36 +395,39 @@ export default function Transaction() {
                                 : ""
                             } py-3 sm:py-4`}
                           >
-                            <div className="grid grid-cols-7 gap-2 sm:gap-4 items-center">
+                            <div className="grid grid-cols-7 max-md:grid-cols-2 max-md:justify-between gap-2 sm:gap-4 items-center">
                               <div className="flex items-center gap-2 sm:gap-3">
                                 {item.icon === "up" ? (
-                                  <CiCircleChevUp className="text-[#718EBF] text-xl sm:text-3xl flex-shrink-0" />
+                                  <CiCircleChevUp className="text-[#718EBF] text-xl sm:text-5xl flex-shrink-0" />
                                 ) : (
-                                  <CiCircleChevDown className="text-[#718EBF] text-xl sm:text-3xl flex-shrink-0" />
+                                  <CiCircleChevDown className="text-[#718EBF] text-xl sm:text-5xl flex-shrink-0" />
                                 )}
-                                <div className="text-[#232323] text-xs sm:text-sm truncate">
+                                <div className="text-[#232323] text-sm sm:text-base truncate max-md:whitespace-normal">
                                   {item.name}
+                                  <div className="text-[#718EBF] text-xs sm:text-sm hidden max-md:block">
+                                    {item.date}
+                                  </div>
                                 </div>
                               </div>
-                              <div className="text-[#232323] text-xs sm:text-sm">
+                              <div className="text-[#232323] text-xs sm:text-sm max-md:hidden">
                                 {item.transactionId}
                               </div>
-                              <div className="text-[#232323] text-xs sm:text-sm">
+                              <div className="text-[#232323] text-xs sm:text-sm max-md:hidden">
                                 {item.type}
                               </div>
-                              <div className="text-[#232323] text-xs sm:text-sm">
+                              <div className="text-[#232323] text-xs sm:text-sm max-md:hidden">
                                 {item.card}
                               </div>
-                              <div className="text-[#232323] text-xs sm:text-sm">
+                              <div className="text-[#232323] text-xs sm:text-sm max-md:hidden">
                                 {item.date}
                               </div>
                               <div
-                                className={`${item.amountClass} text-xs sm:text-sm font-semibold`}
+                                className={`${item.amountClass} text-base sm:text-sm font-semibold max-md:text-end`}
                               >
                                 {item.amount}
                               </div>
                               <div>
-                                <button className="outline-1 outline-[#123288] hover:bg-textblue text-[#123288] hover:text-white px-2 sm:px-4 py-1 sm:py-2 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition cursor-pointer whitespace-nowrap">
+                                <button className="outline-1 max-md:hidden outline-[#123288] hover:bg-textblue text-[#123288] hover:text-white px-2 sm:px-4 py-1 sm:py-2 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition cursor-pointer whitespace-nowrap">
                                   Download
                                 </button>
                               </div>
