@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 function Navbar({ setIsOpen, isOpen }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -48,13 +49,13 @@ function Navbar({ setIsOpen, isOpen }) {
         </div>
 
         {/* Setting */}
-        <button className="cursor-pointer hidden lg:block">
+        <Link to="/setting" className="cursor-pointer hidden lg:block">
           <img
             src="/src/assets/icon/setting.svg"
             alt="setting"
             className="bg-[#F5F7FA] p-3 rounded-full w-10 h-10"
           />
-        </button>
+        </Link>
 
         {/* Notif */}
         <button className="cursor-pointer hidden lg:block">

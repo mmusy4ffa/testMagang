@@ -146,6 +146,20 @@ export default function Transaction() {
     startIndex + itemsPerPage,
   );
 
+  const chartData = [
+    { month: "Aug", amount: 8500 },
+    { month: "Sep", amount: 10200 },
+    { month: "Oct", amount: 11500 },
+    { month: "Nov", amount: 9800 },
+    { month: "Dec", amount: 12500 },
+    { month: "Jan", amount: 11200 },
+  ];
+
+  const maxValue = Math.max(...chartData.map((d) => d.amount));
+  const minValue = Math.min(...chartData.map((d) => d.amount));
+
+  const [selected, setSelected] = useState(chartData[4]);
+
   return (
     <div className="flex h-screen overflow-hidden">
       <SideBar isOpen={isOpen} setIsOpen={handleBurger} />
@@ -166,10 +180,10 @@ export default function Transaction() {
               </div>
 
               {/* Cards */}
-              <div className="overflow-x-auto scrollbar-hide -mx-4 px-4">
-                <div className="flex gap-4 min-w-max xl:min-w-0 xl:grid xl:grid-cols-3 xl:gap-4">
+              <div className="-mx-4 px-4">
+                <div className="flex gap-4 xl:min-w-0 xl:grid xl:grid-cols-3 max-md:grid-cols-3 xl:gap-4 overflow-x-auto scrollbar-hide ">
                   {/* Card 1 */}
-                  <div className="w-[280px] sm:w-[320px] md:w-[350px] xl:w-auto rounded-2xl bg-gradient-to-r from-[#4C49ED] to-[#0A06F4] flex-shrink-0 xl:flex-shrink">
+                  <div className="w-[280px] max-sm:w-[320px] max-md:w-[490px] max-lg:w-[490px] w-[390px] xl:w-auto rounded-2xl bg-gradient-to-r from-[#4C49ED] to-[#0A06F4] flex-shrink-0 xl:flex-shrink">
                     <div className="m-4 sm:m-6 space-y-4">
                       <div className="flex justify-between items-center">
                         <div>
@@ -222,7 +236,7 @@ export default function Transaction() {
                   </div>
 
                   {/* Card 2 */}
-                  <div className="w-[280px] sm:w-[320px] md:w-[350px] xl:w-auto rounded-2xl bg-white border border-gray-200 flex-shrink-0 xl:flex-shrink">
+                  <div className="w-[280px] max-sm:w-[320px] max-md:w-[490px]  max-lg:w-[490px] w-[390px]  xl:w-auto rounded-2xl bg-white border border-gray-200 flex-shrink-0 xl:flex-shrink">
                     <div className="m-4 sm:m-6 space-y-4">
                       <div className="flex justify-between items-center">
                         <div>
@@ -275,56 +289,110 @@ export default function Transaction() {
                   </div>
 
                   {/* Card 3 */}
-                  <div className="w-[280px] sm:w-[320px] md:w-[350px] xl:w-auto rounded-2xl bg-gradient-to-r from-[#2D2A8F] to-[#1A18B0] flex-shrink-0 xl:flex-shrink">
-                    <div className="m-4 sm:m-6 space-y-4">
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <div className="text-white text-xs sm:text-sm">
-                            Balance
-                          </div>
-                          <div className="text-white text-xl sm:text-2xl">
-                            $3,245
-                          </div>
+                  <div className="w-[280px] sm:w-[320px] md:w-[390px] w-[320px]  xl:w-auto rounded-2xl bg-white flex-shrink-0 xl:flex-shrink hidden lg:block">
+                    <div className="py-6 px-4 sm:px-6">
+                      <div className="text-center mb-6">
+                        <div className="text-gray-400 text-xs"></div>
+                        <div className="text-2xl font-bold text-gray-800">
+                          ${selected?.amount.toLocaleString()}
                         </div>
-                        <img
-                          src="/src/assets/icon/Chip_Card.svg"
-                          alt=""
-                          className="w-8 h-8 sm:w-10 sm:h-10"
-                        />
                       </div>
-                      <div className="flex flex-wrap items-center gap-4 sm:gap-10">
-                        <div>
-                          <div className="text-white text-xs sm:text-sm">
-                            CARD HOLDER
-                          </div>
-                          <div className="text-white text-xs sm:text-sm font-semibold">
-                            Eddy Cusuma
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-white text-xs sm:text-sm">
-                            VALID THRU
-                          </div>
-                          <div className="text-white text-xs sm:text-sm font-semibold">
-                            12/22
-                          </div>
-                        </div>
+
+                      {/* Chart Bars */}
+                      <div className="flex justify-between items-end gap-2 h-24">
+                        {chartData.map((item) => {
+                          const heightPercent =
+                            ((item.amount - minValue) / (maxValue - minValue)) *
+                              80 +
+                            20;
+
+                          return (
+                            <div
+                              key={item.month}
+                              className="flex flex-col items-center gap-2 flex-1 cursor-pointer group"
+                              onClick={() => setSelected(item)}
+                            >
+                              {/* Bar */}
+                              <div
+                                className={`w-full rounded-lg transition-all duration-300 ${
+                                  selected?.month === item.month
+                                    ? "bg-[#16DBCC]"
+                                    : "bg-[#EDF0F7] group-hover:bg-[#16DBCC]/50"
+                                }`}
+                                style={{
+                                  height: `${heightPercent}%`,
+                                  minHeight: "8px",
+                                }}
+                              />
+
+                              {/* Label Bulan */}
+                              <div
+                                className={`text-sm ${
+                                  selected?.month === item.month
+                                    ? "text-[#16DBCC] font-semibold"
+                                    : "text-gray-400"
+                                }`}
+                              >
+                                {item.month}
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
-                    <div className="w-full bg-gradient-to-b from-[#2D2A8F] to-[#1A18B0] rounded-b-2xl">
-                      <div className="px-4 py-3">
-                        <div className="flex justify-between items-center">
-                          <div className="text-white text-sm sm:text-xl truncate">
-                            3778 **** **** 1234
-                          </div>
-                          <img
-                            src="/src/assets/icon/dsds.svg"
-                            alt=""
-                            className="w-6 h-6 sm:w-8 sm:h-8"
+                  </div>
+                </div>
+              </div>
+
+              {/* Cards 3 Mobile */}
+              <div className="w-auto rounded-2xl bg-white flex-shrink-0 block lg:hidden">
+                <div className="py-6 px-4 sm:px-6">
+                  <div className="text-center mb-6">
+                    <div className="text-2xl font-bold text-gray-800">
+                      ${selected?.amount.toLocaleString()}
+                    </div>
+                  </div>
+
+                  {/* Chart Bars */}
+                  <div className="flex justify-between items-end gap-2 h-24">
+                    {chartData.map((item) => {
+                      const heightPercent =
+                        ((item.amount - minValue) / (maxValue - minValue)) *
+                          80 +
+                        20;
+
+                      return (
+                        <div
+                          key={item.month}
+                          className="flex flex-col items-center gap-2 flex-1 cursor-pointer group"
+                          onClick={() => setSelected(item)}
+                        >
+                          {/* Bar */}
+                          <div
+                            className={`w-full rounded-lg transition-all duration-300 ${
+                              selected?.month === item.month
+                                ? "bg-[#16DBCC]"
+                                : "bg-[#EDF0F7] group-hover:bg-[#16DBCC]/50"
+                            }`}
+                            style={{
+                              height: `${heightPercent}%`,
+                              minHeight: "8px",
+                            }}
                           />
+
+                          {/* Label Bulan */}
+                          <div
+                            className={`text-sm ${
+                              selected?.month === item.month
+                                ? "text-[#16DBCC] font-semibold"
+                                : "text-gray-400"
+                            }`}
+                          >
+                            {item.month}
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -361,25 +429,25 @@ export default function Transaction() {
                       {/* Header */}
                       <div className="border-b border-[#718EBF] pb-3 sm:pb-4 max-md:hidden">
                         <div className="grid grid-cols-7 gap-2 sm:gap-4 ">
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-base max-md:hidden">
                             Descriptions
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-base max-md:hidden">
                             Transaction ID
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-base max-md:hidden">
                             Type
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-base max-md:hidden">
                             Card
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-base max-md:hidden">
                             Date
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-base max-md:hidden">
                             Amount
                           </div>
-                          <div className="text-[#718EBF] font-medium text-xs sm:text-sm max-md:hidden">
+                          <div className="text-[#718EBF] font-medium text-xs sm:text-base max-md:hidden">
                             Receipt
                           </div>
                         </div>
@@ -393,7 +461,10 @@ export default function Transaction() {
                               idx !== paginatedTransactions.length - 1
                                 ? "border-b border-[#718EBF]"
                                 : ""
-                            } py-3 sm:py-4`}
+                            } py-3 sm:py-4 cursor-pointer hover:bg-gray-50 transition-all duration-200 active:scale-[0.99]`}
+                            onClick={() => {
+                              console.log("Transaction clicked:", item.name);
+                            }}
                           >
                             <div className="grid grid-cols-7 max-md:grid-cols-2 max-md:justify-between gap-2 sm:gap-4 items-center">
                               <div className="flex items-center gap-2 sm:gap-3">
@@ -409,25 +480,31 @@ export default function Transaction() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="text-[#232323] text-xs sm:text-sm max-md:hidden">
+                              <div className="text-[#232323] text-xs sm:text-base max-md:hidden">
                                 {item.transactionId}
                               </div>
-                              <div className="text-[#232323] text-xs sm:text-sm max-md:hidden">
+                              <div className="text-[#232323] text-xs sm:text-base max-md:hidden">
                                 {item.type}
                               </div>
-                              <div className="text-[#232323] text-xs sm:text-sm max-md:hidden">
+                              <div className="text-[#232323] text-xs sm:text-base max-md:hidden">
                                 {item.card}
                               </div>
-                              <div className="text-[#232323] text-xs sm:text-sm max-md:hidden">
+                              <div className="text-[#232323] text-xs sm:text-base max-md:hidden">
                                 {item.date}
                               </div>
                               <div
-                                className={`${item.amountClass} text-base sm:text-sm font-semibold max-md:text-end`}
+                                className={`${item.amountClass} text-base sm:text-base font-semibold max-md:text-end`}
                               >
                                 {item.amount}
                               </div>
                               <div>
-                                <button className="outline-1 max-md:hidden outline-[#123288] hover:bg-textblue text-[#123288] hover:text-white px-2 sm:px-4 py-1 sm:py-2 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition cursor-pointer whitespace-nowrap">
+                                <button
+                                  className="outline-1 max-md:hidden outline-[#123288] hover:bg-textblue text-[#123288] hover:text-white px-2 sm:px-4 py-1 sm:py-2 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition cursor-pointer whitespace-nowrap"
+                                  onClick={(e) => {
+                                    e.stopPropagation(); // Mencegah trigger dari parent
+                                    console.log("Download clicked:", item.name);
+                                  }}
+                                >
                                   Download
                                 </button>
                               </div>
