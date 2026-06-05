@@ -3,7 +3,7 @@ import SideBar from "../components/SideBar";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 import Background from "../components/Background";
-import ProfileIcon from "/public/assets/icon/profile.png";
+import ProfileIcon from "/src/assets/icon/profile.png";
 import EditBIcon from "/src/assets/icon/editb.svg";
 
 export default function Setting() {
