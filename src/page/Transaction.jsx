@@ -7,6 +7,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiCircleChevUp } from "react-icons/ci";
 import { CiCircleChevDown } from "react-icons/ci";
+import dsdsIcon from "/src/assets/icon/dsds.svg";
 
 export default function Transaction() {
   const [isOpen, setIsOpen] = useState(false);
@@ -230,7 +231,7 @@ export default function Transaction() {
                             3778 **** **** 1234
                           </div>
                           <img
-                            src="/public/assets/icon/dsds.svg"
+                            src={dsdsIcon}
                             alt=""
                             className="w-6 h-6 sm:w-8 sm:h-8"
                           />
