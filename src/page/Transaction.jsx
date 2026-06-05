@@ -230,7 +230,7 @@ export default function Transaction() {
                             3778 **** **** 1234
                           </div>
                           <img
-                            src="/src/assets/icon/dsds.svg"
+                            src="/public/assets/icon/dsds.svg"
                             alt=""
                             className="w-6 h-6 sm:w-8 sm:h-8"
                           />

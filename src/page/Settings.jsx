@@ -57,7 +57,7 @@ export default function Setting() {
                     <div className="flex flex-col lg:flex-row">
                       <div className="relative w-28 h-28 cursor-pointer mx-auto lg:mx-0">
                         <img
-                          src="/src/assets/icon/profile.png"
+                          src="/public/assets/icon/profile.png"
                           alt="Profile"
                           className="w-28 h-28 rounded-full object-cover"
                         />
