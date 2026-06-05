@@ -1,63 +1,78 @@
 // src/components/SideBar.jsx
 import { NavLink } from "react-router-dom";
 
+// Import semua icon
+import bdashIcon from "/src/assets/icon/bdash.svg";
+import dashIcon from "/src/assets/icon/dash.svg";
+import transactionIcon from "/src/assets/icon/transaction.svg";
+import transactionCloseIcon from "/src/assets/icon/transactionclose.svg";
+import userIcon from "/src/assets/icon/user.svg";
+import accountsOpenIcon from "/src/assets/icon/accountsopen.svg";
+import investmentIcon from "/src/assets/icon/investment.svg";
+import creditIcon from "/src/assets/icon/credit.svg";
+import loanIcon from "/src/assets/icon/loan.svg";
+import serviceIcon from "/src/assets/icon/service.svg";
+import privIcon from "/src/assets/icon/priv.svg";
+import setting1Icon from "/src/assets/icon/setting1.svg";
+import settingOpenIcon from "/src/assets/icon/settingopen.svg";
+
 function SideBar({ setIsOpen, isOpen }) {
   const menuItems = [
     {
       id: "dashboard",
       name: "Dashboard",
-      icon: "/assets/icon/dash.svg", // ← hapus /src
+      icon: dashIcon,
       path: "/dashboard",
     },
     {
       id: "transaction",
       name: "Transaction",
-      icon: "/assets/icon/transactionclose.svg",
-      iconActive: "/assets/icon/transaction.svg",
+      icon: transactionCloseIcon,
+      iconActive: transactionIcon,
       path: "/transaction",
     },
     {
       id: "accounts",
       name: "Accounts",
-      icon: "/assets/icon/user.svg",
-      iconActive: "/assets/icon/accountsopen.svg",
+      icon: userIcon,
+      iconActive: accountsOpenIcon,
       path: "/accounts",
     },
     {
       id: "investments",
       name: "Investments",
-      icon: "/assets/icon/investment.svg",
+      icon: investmentIcon,
       path: "/investments",
     },
     {
       id: "creditcards",
       name: "Credit Cards",
-      icon: "/assets/icon/credit.svg",
+      icon: creditIcon,
       path: "/creditcards",
     },
     {
       id: "loans",
       name: "Loans",
-      icon: "/assets/icon/loan.svg",
+      icon: loanIcon,
       path: "/loans",
     },
     {
       id: "services",
       name: "Services",
-      icon: "/assets/icon/service.svg",
+      icon: serviceIcon,
       path: "/services",
     },
     {
       id: "privileges",
       name: "My Privileges",
-      icon: "/assets/icon/priv.svg",
+      icon: privIcon,
       path: "/privileges",
     },
     {
       id: "setting",
       name: "Setting",
-      icon: "/assets/icon/setting1.svg",
-      iconActive: "/assets/icon/settingopen.svg",
+      icon: setting1Icon,
+      iconActive: settingOpenIcon,
       path: "/setting",
     },
   ];
@@ -86,11 +101,7 @@ function SideBar({ setIsOpen, isOpen }) {
           {/* Logo */}
           <div className="flex justify-center">
             <div className="flex items-center gap-2 cursor-pointer">
-              <img
-                src="/src/assets/icon/bdash.svg"
-                alt=""
-                className="w-6 h-6"
-              />
+              <img src={bdashIcon} alt="" className="w-6 h-6" />
               <div className="font-bold text-2xl text-textprim">BankDash.</div>
             </div>
           </div>
