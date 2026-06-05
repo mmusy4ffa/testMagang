@@ -28,7 +28,7 @@ export default function Setting() {
       <SideBar isOpen={isOpen} setIsOpen={handleBurger} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <div className="flex-shrink-0">
-          <Navbar isOpen={isOpen} setIsOpen={handleBurger} />
+          <Navbar isOpen={isOpen} setIsOpen={handleBurger} title="Settings" />
         </div>
         <Background>
           <div className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide">

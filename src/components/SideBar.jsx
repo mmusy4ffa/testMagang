@@ -12,13 +12,15 @@ function SideBar({ setIsOpen, isOpen }) {
     {
       id: "transaction",
       name: "Transaction",
-      icon: "/src/assets/icon/transaction.svg",
+      icon: "/src/assets/icon/transactionclose.svg",
+      iconActive: "/src/assets/icon/transaction.svg",
       path: "/transaction",
     },
     {
       id: "accounts",
       name: "Accounts",
       icon: "/src/assets/icon/user.svg",
+      iconActive: "/src/assets/icon/accountsopen.svg",
       path: "/accounts",
     },
     {
@@ -54,7 +56,8 @@ function SideBar({ setIsOpen, isOpen }) {
     {
       id: "setting",
       name: "Setting",
-      icon: "/src/assets/icon/set1.svg",
+      icon: "/src/assets/icon/setting1.svg",
+      iconActive: "/src/assets/icon/settingopen.svg",
       path: "/setting",
     },
   ];
@@ -64,8 +67,8 @@ function SideBar({ setIsOpen, isOpen }) {
       {/*mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-opacity-50 z-40 md:hidden"
-          onClick={setIsOpen}
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
         />
       )}
 
@@ -99,6 +102,7 @@ function SideBar({ setIsOpen, isOpen }) {
                 <NavLink
                   key={item.id}
                   to={item.path}
+                  onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     `relative flex items-center gap-4 px-4 py-2 rounded-lg transition-all duration-300 ${
                       isActive
@@ -116,7 +120,11 @@ function SideBar({ setIsOpen, isOpen }) {
 
                       <div className="w-6 flex justify-end">
                         <img
-                          src={item.icon}
+                          src={
+                            isActive && item.iconActive
+                              ? item.iconActive
+                              : item.icon
+                          }
                           alt=""
                           className={`w-5 h-5 ${isActive ? "opacity-100" : "opacity-70"}`}
                         />

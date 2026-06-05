@@ -3,7 +3,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-function Navbar({ setIsOpen, isOpen }) {
+function Navbar({ setIsOpen, isOpen, title }) {
+  // ← tambah prop title
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -17,9 +18,9 @@ function Navbar({ setIsOpen, isOpen }) {
           {isOpen ? <IoClose size={24} /> : <GiHamburgerMenu size={24} />}
         </button>
 
-        {/* Title */}
+        {/* Title - dinamis sesuai halaman */}
         <div className="font-bold text-xl sm:text-2xl text-[#343C6A] whitespace-nowrap">
-          Transactions
+          {title} {/* ← title dari props */}
         </div>
 
         <div className="lg:hidden p-1 rounded-full cursor-pointer">
