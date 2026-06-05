@@ -13,6 +13,9 @@ import AppleIcon from "/src/assets/icon/apple.svg";
 import UsersIcon from "/src/assets/icon/users.svg";
 import PsIcon from "/src/assets/icon/ps.svg";
 import Users2Icon from "/src/assets/icon/users2.svg";
+import GtranIcon from "/src/assets/icon/Gtran.svg";
+import RtranIcon from "/src/assets/icon/Rtran.svg";
+import BtranIcon from "/src/assets/icon/Btran.svg";
 
 export default function Accounts() {
   const [isOpen, setIsOpen] = useState(false);
@@ -110,7 +113,7 @@ export default function Accounts() {
                     <div className="p-4 sm:p-5 space-y-4">
                       {[
                         {
-                          icon: "/src/assets/icon/Gtran.svg",
+                          icon: GtranIcon,
                           iconBg: "bg-[#DCFAF1]",
                           name: "Spotify Subscription",
                           date: "25 Jan 2021",
@@ -122,7 +125,7 @@ export default function Accounts() {
                           amountColor: "text-[#718EBF]",
                         },
                         {
-                          icon: "/src/assets/icon/Rtran.svg",
+                          icon: RtranIcon,
                           iconBg: "bg-[#FFE8EC]",
                           name: "Mobile Service",
                           date: "25 Jan 2021",
@@ -134,7 +137,7 @@ export default function Accounts() {
                           amountColor: "text-[#718EBF]",
                         },
                         {
-                          icon: "/src/assets/icon/Btran.svg",
+                          icon: BtranIcon,
                           iconBg: "bg-[#E7F0FF]",
                           name: "Emilly Wilson",
                           date: "25 Jan 2021",

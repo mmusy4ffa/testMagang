@@ -8,7 +8,6 @@ import SettingIcon from "/src/assets/icon/setting.svg";
 import NotifIcon from "/src/assets/icon/notif.svg";
 
 function Navbar({ setIsOpen, isOpen, title }) {
-  // ← tambah prop title
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -22,9 +21,8 @@ function Navbar({ setIsOpen, isOpen, title }) {
           {isOpen ? <IoClose size={24} /> : <GiHamburgerMenu size={24} />}
         </button>
 
-        {/* Title - dinamis sesuai halaman */}
         <div className="font-bold text-xl sm:text-2xl text-[#343C6A] whitespace-nowrap">
-          {title} {/* ← title dari props */}
+          {title}
         </div>
 
         <div className="lg:hidden p-1 rounded-full cursor-pointer">
