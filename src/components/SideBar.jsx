@@ -1,7 +1,6 @@
 // src/components/SideBar.jsx
 import { NavLink } from "react-router-dom";
 
-// Import semua icon
 import bdashIcon from "/src/assets/icon/bdash.svg";
 import dashIcon from "/src/assets/icon/dash.svg";
 import transactionIcon from "/src/assets/icon/transaction.svg";
