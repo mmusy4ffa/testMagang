@@ -8,6 +8,9 @@ import { IoIosArrowForward } from "react-icons/io";
 import { CiCircleChevUp } from "react-icons/ci";
 import { CiCircleChevDown } from "react-icons/ci";
 import dsdsIcon from "/src/assets/icon/dsds.svg";
+import ChipCardIcon from "/src/assets/icon/Chip_Card.svg";
+import ChipCardBIcon from "/src/assets/icon/Chip_CardB.svg";
+import DsdsBIcon from "/src/assets/icon/dsdsB.svg";
 
 export default function Transaction() {
   const [isOpen, setIsOpen] = useState(false);
@@ -200,7 +203,7 @@ export default function Transaction() {
                           </div>
                         </div>
                         <img
-                          src="/src/assets/icon/Chip_Card.svg"
+                          src={ChipCardIcon}
                           alt=""
                           className="w-8 h-8 sm:w-10 sm:h-10"
                         />
@@ -253,7 +256,7 @@ export default function Transaction() {
                           </div>
                         </div>
                         <img
-                          src="/src/assets/icon/Chip_CardB.svg"
+                          src={ChipCardBIcon}
                           alt=""
                           className="w-8 h-8 sm:w-10 sm:h-10"
                         />
@@ -284,7 +287,7 @@ export default function Transaction() {
                             3778 **** **** 1234
                           </div>
                           <img
-                            src="/src/assets/icon/dsdsB.svg"
+                            src={DsdsBIcon}
                             alt=""
                             className="w-6 h-6 sm:w-8 sm:h-8"
                           />

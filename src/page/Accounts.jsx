@@ -3,6 +3,16 @@ import SideBar from "../components/SideBar";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 import Background from "../components/Background";
+import YMoneyIcon from "/src/assets/icon/ymoney.svg";
+import BMoneyIcon from "/src/assets/icon/bmoney.svg";
+import PMoneyIcon from "/src/assets/icon/pmoney.svg";
+import GMoneyIcon from "/src/assets/icon/gmoney.svg";
+import ChipCardIcon from "/src/assets/icon/Chip_Card.svg";
+import DsdsIcon from "/src/assets/icon/dsds.svg";
+import AppleIcon from "/src/assets/icon/apple.svg";
+import UsersIcon from "/src/assets/icon/users.svg";
+import PsIcon from "/src/assets/icon/ps.svg";
+import Users2Icon from "/src/assets/icon/users2.svg";
 
 export default function Accounts() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +36,7 @@ export default function Accounts() {
                 {/* Card 1 */}
                 <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl h-28 sm:h-32 lg:h-36 flex justify-between items-center px-4 sm:px-6 gap-2">
                   <img
-                    src="/src/assets/icon/ymoney.svg"
+                    src={YMoneyIcon}
                     alt=""
                     className="h-10 w-10 sm:h-14 sm:w-14 lg:h-18 lg:w-18"
                   />
@@ -42,7 +52,7 @@ export default function Accounts() {
                 {/* Card 2 */}
                 <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl h-28 sm:h-32 lg:h-36 flex justify-between items-center px-4 sm:px-6 gap-2">
                   <img
-                    src="/src/assets/icon/bmoney.svg"
+                    src={BMoneyIcon}
                     alt=""
                     className="h-10 w-10 sm:h-14 sm:w-14 lg:h-18 lg:w-18"
                   />
@@ -58,7 +68,7 @@ export default function Accounts() {
                 {/* Card 3 */}
                 <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl h-28 sm:h-32 lg:h-36 flex justify-between items-center px-4 sm:px-6 gap-2">
                   <img
-                    src="/src/assets/icon/pmoney.svg"
+                    src={PMoneyIcon}
                     alt=""
                     className="h-10 w-10 sm:h-14 sm:w-14 lg:h-18 lg:w-18"
                   />
@@ -74,7 +84,7 @@ export default function Accounts() {
                 {/* Card 4 */}
                 <div className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl h-28 sm:h-32 lg:h-36 flex justify-between items-center px-4 sm:px-6 gap-2">
                   <img
-                    src="/src/assets/icon/gmoney.svg"
+                    src={GMoneyIcon}
                     alt=""
                     className="h-10 w-10 sm:h-14 sm:w-14 lg:h-18 lg:w-18"
                   />
@@ -209,7 +219,7 @@ export default function Accounts() {
                           </div>
                         </div>
                         <img
-                          src="/src/assets/icon/Chip_Card.svg"
+                          src={ChipCardIcon}
                           alt=""
                           className="w-8 h-8 sm:w-10 sm:h-10"
                         />
@@ -240,7 +250,7 @@ export default function Accounts() {
                             3778 **** **** 1234
                           </div>
                           <img
-                            src="/src/assets/icon/dsds.svg"
+                            src={DsdsIcon}
                             alt=""
                             className="w-6 h-6 sm:w-8 sm:h-8"
                           />
@@ -407,7 +417,7 @@ export default function Accounts() {
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-3">
                           <img
-                            src="/src/assets/icon/apple.svg"
+                            src={AppleIcon}
                             alt=""
                             className="w-10 h-10 sm:w-12 sm:h-12"
                           />
@@ -427,7 +437,7 @@ export default function Accounts() {
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-3">
                           <img
-                            src="/src/assets/icon/users.svg"
+                            src={UsersIcon}
                             alt=""
                             className="w-10 h-10 sm:w-12 sm:h-12"
                           />
@@ -447,7 +457,7 @@ export default function Accounts() {
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-3">
                           <img
-                            src="/src/assets/icon/ps.svg"
+                            src={PsIcon}
                             alt=""
                             className="w-10 h-10 sm:w-12 sm:h-12"
                           />
@@ -467,7 +477,7 @@ export default function Accounts() {
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-3">
                           <img
-                            src="/src/assets/icon/users2.svg"
+                            src={Users2Icon}
                             alt=""
                             className="w-10 h-10 sm:w-12 sm:h-12"
                           />

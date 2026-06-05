@@ -2,6 +2,10 @@ import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import ProfileIcon from "/src/assets/icon/profile.png";
+import SearchIcon from "/src/assets/icon/search.svg";
+import SettingIcon from "/src/assets/icon/setting.svg";
+import NotifIcon from "/src/assets/icon/notif.svg";
 
 function Navbar({ setIsOpen, isOpen, title }) {
   // ← tambah prop title
@@ -25,7 +29,7 @@ function Navbar({ setIsOpen, isOpen, title }) {
 
         <div className="lg:hidden p-1 rounded-full cursor-pointer">
           <img
-            src="/src/assets/icon/profile.png"
+            src={ProfileIcon}
             alt="Profile"
             className="w-10 h-10 rounded-full object-cover"
           />
@@ -35,11 +39,7 @@ function Navbar({ setIsOpen, isOpen, title }) {
       <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
         {/* Search Bar */}
         <div className="flex flex-1 lg:flex-none items-center gap-3 bg-[#F5F7FA] rounded-full px-4 py-2">
-          <img
-            src="/src/assets/icon/search.svg"
-            alt="search"
-            className="w-4 h-4"
-          />
+          <img src={SearchIcon} alt="search" className="w-4 h-4" />
           <input
             type="text"
             placeholder="Search for something"
@@ -52,7 +52,7 @@ function Navbar({ setIsOpen, isOpen, title }) {
         {/* Setting */}
         <Link to="/setting" className="cursor-pointer hidden lg:block">
           <img
-            src="/src/assets/icon/setting.svg"
+            src={SettingIcon}
             alt="setting"
             className="bg-[#F5F7FA] p-3 rounded-full w-10 h-10"
           />
@@ -61,7 +61,7 @@ function Navbar({ setIsOpen, isOpen, title }) {
         {/* Notif */}
         <button className="cursor-pointer hidden lg:block">
           <img
-            src="/src/assets/icon/notif.svg"
+            src={NotifIcon}
             alt="notification"
             className="bg-[#F5F7FA] p-3 rounded-full w-10 h-10"
           />
@@ -70,7 +70,7 @@ function Navbar({ setIsOpen, isOpen, title }) {
         {/* Profile */}
         <div className="hidden lg:block p-1 rounded-full cursor-pointer">
           <img
-            src="/src/assets/icon/profile.png"
+            src={ProfileIcon}
             alt="Profile"
             className="w-10 h-10 rounded-full object-cover"
           />

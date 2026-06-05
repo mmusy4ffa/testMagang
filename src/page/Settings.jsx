@@ -3,6 +3,8 @@ import SideBar from "../components/SideBar";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 import Background from "../components/Background";
+import ProfileIcon from "/public/assets/icon/profile.png";
+import EditBIcon from "/src/assets/icon/editb.svg";
 
 export default function Setting() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,16 +59,12 @@ export default function Setting() {
                     <div className="flex flex-col lg:flex-row">
                       <div className="relative w-28 h-28 cursor-pointer mx-auto lg:mx-0">
                         <img
-                          src="/public/assets/icon/profile.png"
+                          src={ProfileIcon}
                           alt="Profile"
                           className="w-28 h-28 rounded-full object-cover"
                         />
                         <div className="absolute bottom-0 right-0 w-8 h-8 rounded-full flex items-center justify-center">
-                          <img
-                            src="/src/assets/icon/editb.svg"
-                            alt="Edit"
-                            className="w-8 h-8"
-                          />
+                          <img src={EditBIcon} alt="Edit" className="w-8 h-8" />
                         </div>
                       </div>
                       <div className="lg:px-6 xl:px-24 flex-1">
