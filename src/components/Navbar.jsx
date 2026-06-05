@@ -67,11 +67,13 @@ function Navbar({ setIsOpen, isOpen, title }) {
 
         {/* Profile */}
         <div className="hidden lg:block p-1 rounded-full cursor-pointer">
-          <img
-            src={ProfileIcon}
-            alt="Profile"
-            className="w-10 h-10 rounded-full object-cover"
-          />
+          <Link to="/setting">
+            <img
+              src={ProfileIcon}
+              alt="Profile"
+              className="w-10 h-10 rounded-full object-cover"
+            />
+          </Link>
         </div>
       </div>
     </div>

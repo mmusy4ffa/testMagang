@@ -135,7 +135,7 @@ export default function Setting() {
                                 Password
                               </div>
                               <input
-                                type="text"
+                                type="password"
                                 placeholder="**********"
                                 className="w-full border p-2 rounded-xl placeholder:text-[#718EBF] border-[#DFEAF2] focus:outline-none text-[#232323] text-sm sm:text-base"
                               />
@@ -304,7 +304,7 @@ export default function Setting() {
                             Current Password
                           </div>
                           <input
-                            type="text"
+                            type="password"
                             placeholder="**********"
                             className="w-full border p-2 rounded-xl placeholder:text-[#718EBF] border-[#DFEAF2] focus:outline-none text-[#232323] text-sm sm:text-base"
                           />
@@ -314,7 +314,7 @@ export default function Setting() {
                             New Password
                           </div>
                           <input
-                            type="text"
+                            type="password"
                             placeholder="**********"
                             className="w-full border p-2 rounded-xl placeholder:text-[#718EBF] border-[#DFEAF2] focus:outline-none text-[#232323] text-sm sm:text-base"
                           />
